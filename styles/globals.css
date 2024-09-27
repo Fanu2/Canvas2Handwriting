@@ -1,0 +1,73 @@
+/* Dancing Script Fonts */
+@font-face {
+  font-family: 'Dancing Script Bold';
+  src: url('/fonts/DancingScript-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Dancing Script Medium';
+  src: url('/fonts/DancingScript-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Dancing Script Regular';
+  src: url('/fonts/DancingScript-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Dancing Script SemiBold';
+  src: url('/fonts/DancingScript-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Dancing Script Variable';
+  src: url('/fonts/DancingScript-VariableFont_wght.ttf') format('truetype');
+}
+
+/* Geist Fonts */
+@font-face {
+  font-family: 'Geist VF';
+  src: url('/fonts/GeistVF.woff') format('woff');
+}
+@font-face {
+  font-family: 'Geist Mono VF';
+  src: url('/fonts/GeistMonoVF.woff') format('woff');
+}
+
+/* Kalam Fonts */
+@font-face {
+  font-family: 'Kalam Bold';
+  src: url('/fonts/Kalam-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Kalam Light';
+  src: url('/fonts/Kalam-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Kalam Regular';
+  src: url('/fonts/Kalam-Regular.ttf') format('truetype');
+}
+
+/* Patrick Hand */
+@font-face {
+  font-family: 'Patrick Hand';
+  src: url('/fonts/PatrickHand-Regular.ttf') format('truetype');
+}
+
+/* Tillana Fonts */
+@font-face {
+  font-family: 'Tillana Bold';
+  src: url('/fonts/Tillana-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Tillana ExtraBold';
+  src: url('/fonts/Tillana-ExtraBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Tillana Medium';
+  src: url('/fonts/Tillana-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Tillana Regular';
+  src: url('/fonts/Tillana-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Tillana SemiBold';
+  src: url('/fonts/Tillana-SemiBold.ttf') format('truetype');
+}
