@@ -44,7 +44,7 @@ const HandwritingConverter = () => {
       if (context) {
         context.font = `${fontSize}px ${fontFamily}`;
         const wrappedLines = wrapText(context, text, 20, 40, canvasWidth - 40, lineHeight);
-        const maxLinesPerPage = Math.floor((canvasHeight - 40) / lineHeight);
+        const maxLinesPerPage = Math.floor((canvasHeight - 80) / lineHeight); // Adjust for margins
         const pageCount = Math.ceil(wrappedLines.length / maxLinesPerPage);
 
         if (format === 'png') {
@@ -52,6 +52,10 @@ const HandwritingConverter = () => {
           for (let page = 0; page < pageCount; page++) {
             const canvas = document.createElement('canvas');
             const context = canvas.getContext('2d');
+            if (!context) {
+              console.error('Failed to get canvas context');
+              continue; // Skip to the next iteration if context is null
+            }
             canvas.width = canvasWidth;
             canvas.height = canvasHeight;
 
@@ -64,7 +68,7 @@ const HandwritingConverter = () => {
             context.fillStyle = fontColor;
 
             const linesForPage = wrappedLines.slice(page * maxLinesPerPage, (page + 1) * maxLinesPerPage);
-            let y = 40;
+            let y = 40; // Starting y position
 
             linesForPage.forEach((line) => {
               context.fillText(line, 20, y);
@@ -84,24 +88,13 @@ const HandwritingConverter = () => {
           const pageWidth = pdf.internal.pageSize.getWidth();
           const pageHeight = pdf.internal.pageSize.getHeight();
 
-          // Compute aspect ratios for scaling
-          const canvasRatio = canvasWidth / canvasHeight;
-          const pageRatio = pageWidth / pageHeight;
-
-          let pdfWidth, pdfHeight;
-          if (canvasRatio > pageRatio) {
-            // Fit by width
-            pdfWidth = pageWidth - 20;
-            pdfHeight = pdfWidth / canvasRatio;
-          } else {
-            // Fit by height
-            pdfHeight = pageHeight - 20;
-            pdfWidth = pdfHeight * canvasRatio;
-          }
-
           for (let page = 0; page < pageCount; page++) {
             const canvas = document.createElement('canvas');
             const context = canvas.getContext('2d');
+            if (!context) {
+              console.error('Failed to get canvas context');
+              continue; // Skip to the next iteration if context is null
+            }
             canvas.width = canvasWidth;
             canvas.height = canvasHeight;
 
@@ -114,7 +107,7 @@ const HandwritingConverter = () => {
             context.fillStyle = fontColor;
 
             const linesForPage = wrappedLines.slice(page * maxLinesPerPage, (page + 1) * maxLinesPerPage);
-            let y = 40;
+            let y = 40; // Starting y position
 
             linesForPage.forEach((line) => {
               context.fillText(line, 20, y);
@@ -126,7 +119,7 @@ const HandwritingConverter = () => {
               pdf.addPage();
             }
 
-            pdf.addImage(imgData, 'PNG', 10, 10, pdfWidth, pdfHeight);
+            pdf.addImage(imgData, 'PNG', 10, 10, pageWidth - 20, pageHeight - 20); // Adjust margins
           }
 
           pdf.save('handwriting.pdf');
